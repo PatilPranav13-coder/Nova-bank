@@ -1,0 +1,12 @@
+{
+  "name": "novabank-demo-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend API for the NovaBank educational ATM simulator",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
