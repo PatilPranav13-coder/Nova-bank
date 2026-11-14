@@ -193,3 +193,19 @@ body{
   .screen{min-height:320px;padding:14px}
   .display{font-size:24px;letter-spacing:5px}
 }
+
+/* ===== NovaBank multi-user portal ===== */
+.nb-shell{width:min(1100px,100%);margin:auto;padding:26px 18px 38px}.nb-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:26px}
+.nb-brand{display:flex;align-items:center;gap:12px;color:var(--text);text-decoration:none;font-size:22px;font-weight:800}.nb-brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:2px;margin-top:2px}
+.nb-mark{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#07131d;font-weight:900}
+.nb-status{font-size:12px;color:var(--muted);border:1px solid #34415d;border-radius:30px;padding:8px 12px}.nb-status i{display:inline-block;width:7px;height:7px;background:var(--ok);border-radius:50%;margin-right:7px}
+.nb-main{min-height:65vh}.nb-card{background:linear-gradient(145deg,rgba(38,49,78,.94),rgba(18,25,47,.96));border:1px solid rgba(129,140,248,.22);border-radius:20px;padding:26px;box-shadow:0 22px 60px rgba(0,0,0,.25)}
+.nb-auth{max-width:480px;margin:5vh auto}.nb-eyebrow{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}.nb-title{font-size:28px;margin:10px 0;color:#f3f6ff}.nb-muted{color:var(--muted);line-height:1.55;font-size:14px}
+.nb-field{display:grid;gap:7px;margin:17px 0}.nb-field label{font-size:13px;color:#c6d2e7}.nb-field input{width:100%;padding:13px 14px;border-radius:10px;border:1px solid #3c4a69;background:#0c1427;color:#f5f7ff;font:inherit;outline:none}.nb-field input:focus{border-color:var(--accent)}
+.nb-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.nb-btn{border:1px solid rgba(34,211,238,.4);background:rgba(34,211,238,.12);color:#eafaff;padding:11px 16px;border-radius:10px;font-weight:700;cursor:pointer}.nb-btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#07131d;border:0}.nb-btn.ghost{background:transparent;border-color:#44516c}.nb-btn:disabled{opacity:.5;cursor:wait}
+.nb-alert{padding:11px 13px;border-radius:10px;margin:14px 0;font-size:13px;background:rgba(248,113,113,.1);color:#ffb6c2;border:1px solid rgba(248,113,113,.25)}.nb-alert.ok{background:rgba(52,211,153,.09);color:#9ff0d0}
+.nb-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.nb-tabs button{background:#141e36;color:#c9d6ed;border:1px solid #34415d;border-radius:9px;padding:9px 13px;cursor:pointer}.nb-tabs button.active{border-color:var(--accent);color:var(--accent)}
+.nb-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}.nb-stat{padding:18px;border-radius:14px;background:rgba(5,14,29,.55);border:1px solid #2d3a56}.nb-stat span{display:block;color:var(--muted);font-size:12px;margin-bottom:8px}.nb-stat strong{font-size:23px;overflow-wrap:anywhere}
+.nb-dashboard{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,.8fr);gap:18px}.nb-section-title{font-size:18px;margin-bottom:14px}.nb-table-wrap{overflow-x:auto}.nb-table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}.nb-table th,.nb-table td{text-align:left;padding:12px 9px;border-bottom:1px solid #303b55}.nb-table th{color:var(--muted);font-weight:600}.nb-positive{color:#6ee7b7}.nb-negative{color:#fda4af}
+.nb-footer{text-align:center;color:#7e8eaa;font-size:11px;margin-top:28px;line-height:1.5}.nb-loading{max-width:420px;margin:12vh auto;text-align:center}.nb-inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.nb-admin{margin-top:18px}
+@media(max-width:760px){.nb-grid{grid-template-columns:1fr}.nb-dashboard{grid-template-columns:1fr}.nb-card{padding:20px}.nb-header{align-items:flex-start}.nb-status{font-size:10px}}
