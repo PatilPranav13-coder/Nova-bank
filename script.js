@@ -54,9 +54,8 @@ $("#screen").addEventListener("click",async e=>{
  case "new":newPage();break;case "home":home();break;case "create":await create();break;
  case "menu":menu();break;case "logout":home("Card ejected.");break;case "balance":menu();break;
  case "withdraw":amountPage("withdraw");break;case "deposit":amountPage("deposit");break;
- case "history":historyPage();break;case "withdraw":case "deposit":break;
+ case "history":historyPage();break;case "submit-withdraw":await transact("withdraw");break;case "submit-deposit":await transact("deposit");break;
  }
- if(a.dataset.action==="withdraw"||a.dataset.action==="deposit")await transact(a.dataset.action);
 });
 document.querySelector(".panel").addEventListener("click",e=>{
  const b=e.target.closest("[data-account]");if(!b)return;chosen=b.dataset.account;pin="";pinPage();
