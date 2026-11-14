@@ -29,12 +29,20 @@ alter table public.profiles enable row level security;
 alter table public.accounts enable row level security;
 alter table public.transactions enable row level security;
 
+create or replace function public.is_novabank_admin()
+returns boolean language sql stable security definer set search_path = public
+as $
+ select coalesce((select is_admin from public.profiles where id = auth.uid()), false);
+$;
+revoke all on function public.is_novabank_admin() from public;
+grant execute on function public.is_novabank_admin() to authenticated;
+
 drop policy if exists "Users read own profile" on public.profiles;
 create policy "Users read own profile" on public.profiles for select to authenticated
- using (id = (select auth.uid()) or exists (select 1 from public.profiles me where me.id = (select auth.uid()) and me.is_admin));
+ using (id = (select auth.uid()) or (select public.is_novabank_admin()));
 drop policy if exists "Users read own account" on public.accounts;
 create policy "Users read own account" on public.accounts for select to authenticated
- using (user_id = (select auth.uid()) or exists (select 1 from public.profiles me where me.id = (select auth.uid()) and me.is_admin));
+ using (user_id = (select auth.uid()) or (select public.is_novabank_admin()));
 drop policy if exists "Users read own transactions" on public.transactions;
 create policy "Users read own transactions" on public.transactions for select to authenticated
  using (user_id = (select auth.uid()) or exists (select 1 from public.profiles me where me.id = (select auth.uid()) and me.is_admin));
