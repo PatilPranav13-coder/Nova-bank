@@ -1,25 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b1020">
-  <title>NovaBank — Demo Banking</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NovaBank ATM</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="nb-shell">
-    <header class="nb-header">
-      <a class="nb-brand" href="#"><span class="nb-mark">N</span><span>NovaBank<small> DEMO BANKING</small></span></a>
-      <span class="nb-status"><i></i> Simulation environment</span>
-    </header>
-    <section id="app" class="nb-main" aria-live="polite">
-      <div class="nb-card nb-loading"><div class="nb-spinner"></div><p>Connecting to NovaBank…</p></div>
+  <main class="wrap">
+
+    <!-- ATM MACHINE -->
+    <section class="atm">
+      <header class="atm-top">
+        <div class="logo">
+          <span class="logo-mark">N</span>
+          <span class="logo-text">NovaBank <small>ATM</small></span>
+        </div>
+        <div class="leds">
+          <span class="led led-green" id="ledCard"></span>
+          <span class="led led-amber"></span>
+        </div>
+      </header>
+
+      <div class="screen-frame">
+        <div class="screen" id="screen"></div>
+      </div>
+
+      <div class="lower">
+        <div class="keypad" id="keypad">
+          <button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button>
+          <button class="k-cancel" data-k="cancel">Cancel</button>
+          <button data-k="4">4</button><button data-k="5">5</button><button data-k="6">6</button>
+          <button class="k-clear" data-k="clear">Clear</button>
+          <button data-k="7">7</button><button data-k="8">8</button><button data-k="9">9</button>
+          <button class="k-enter" data-k="enter">Enter</button>
+          <button class="k-blank" disabled></button><button data-k="0">0</button><button class="k-blank" disabled></button>
+          <button class="k-blank" disabled></button>
+        </div>
+
+        <div class="slots">
+          <div class="slot-block">
+            <div class="slot-label">Card</div>
+            <div class="card-slot" id="cardSlot"><div class="card-in" id="cardIn"></div></div>
+          </div>
+          <div class="slot-block">
+            <div class="slot-label">Cash Dispenser</div>
+            <div class="tray" id="tray"></div>
+          </div>
+        </div>
+      </div>
     </section>
-    <footer class="nb-footer">NovaBank is an educational simulation. Balances are fictional demo credits, not real money.</footer>
+
+    <!-- SIDE PANEL -->
+    <aside class="panel">
+      <h2>Demo Accounts</h2>
+      <p class="hint">Type the account number on the keypad (or click a card), then enter the PIN.</p>
+      <div class="demo-list">
+        <button class="demo-card" data-acc="100101"><b>Pranav</b><span>Acc 100101</span><em>PIN 1234</em></button>
+        <button class="demo-card" data-acc="100102"><b>Ayush</b><span>Acc 100102</span><em>PIN 5678</em></button>
+        <button class="demo-card" data-acc="100103"><b>Arun</b><span>Acc 100103</span><em>PIN 9012</em></button>
+      </div>
+      <h2 id="newAccTitle" style="margin-top:20px">Accounts You Created</h2>
+      <div class="demo-list" id="extraAccs"></div>
+
+      <h2>ATM Cash Stock</h2>
+      <div id="stock" class="stock"></div>
+
+      <button class="reset" id="resetBtn">Reset demo data</button>
+      <p class="hint small">3 wrong PIN attempts lock the account. Sessions time out after 45 seconds of inactivity.</p>
+    </aside>
+
   </main>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="supabase-config.js"></script>
-  <script src="multiuser.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
