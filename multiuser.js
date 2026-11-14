@@ -56,7 +56,7 @@
   async function loadAdmin() {
     const target=document.getElementById('adminContent'); if(!target)return;
     const [p,a]=await Promise.all([
-      client.from('profiles').select('full_name,account_number,created_at').order('created_at',{ascending:false}).limit(200),
+      client.from('profiles').select('id,full_name,account_number,created_at').order('created_at',{ascending:false}).limit(200),
       client.from('accounts').select('user_id,balance')
     ]);
     if(p.error||a.error){target.innerHTML=message((p.error||a.error).message);return;}
