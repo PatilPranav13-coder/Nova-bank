@@ -45,7 +45,7 @@ create policy "Users read own account" on public.accounts for select to authenti
  using (user_id = (select auth.uid()) or (select public.is_novabank_admin()));
 drop policy if exists "Users read own transactions" on public.transactions;
 create policy "Users read own transactions" on public.transactions for select to authenticated
- using (user_id = (select auth.uid()) or exists (select 1 from public.profiles me where me.id = (select auth.uid()) and me.is_admin));
+ using (user_id = (select auth.uid()) or (select public.is_novabank_admin()));
 
 create or replace function public.create_novabank_user()
 returns trigger language plpgsql security definer set search_path = public
